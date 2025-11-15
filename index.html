@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organic Reaction Simulator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Organic Reaction Simulator</h2>
+        <h3>By Moinul Islam Raj</h3>
+
+        <div class="form-group">
+            <label for="startType">Start Chemical Type:</label>
+            <select id="startType">
+                <option>Alkane</option>
+                <option>Alkene</option>
+                <option>Alkyne</option>
+                <option>Alcohol</option>
+                <option>Aldehyde</option>
+                <option>Carboxylic Acid</option>
+                <option>Alkyl Bromide</option>
+                <option>Carboxylate Salt</option>
+                <option>Dibromo Alkane</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="startC">Start Carbon Number:</label>
+            <input type="number" id="startC" min="1" value="1">
+        </div>
+
+        <div class="form-group">
+            <label for="targetType">Target Chemical Type:</label>
+            <select id="targetType">
+                <option>Alkane</option>
+                <option>Alkene</option>
+                <option>Alkyne</option>
+                <option>Alcohol</option>
+                <option>Aldehyde</option>
+                <option>Carboxylic Acid</option>
+                <option>Alkyl Bromide</option>
+                <option>Carboxylate Salt</option>
+                <option>Dibromo Alkane</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="targetC">Target Carbon Number:</label>
+            <input type="number" id="targetC" min="1" value="1">
+        </div>
+
+        <button onclick="runReaction()">Run Reaction</button>
+
+        <textarea id="result" readonly></textarea>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
