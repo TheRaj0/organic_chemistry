@@ -59,7 +59,7 @@ class Chem {
 function wurtz_coupling(chem) {
     if (chem.type === "Alkyl Bromide") {
         const product = new Chem(chem.c*2, "Alkane");
-        return [product, `2${chem.formula} + 2Na →(dry ether)→ ${product.formula} + 2 NaBr`];
+        return [product, `2 ${chem.formula} + 2 Na <span>⟶dry ether⟶</span> ${product.formula} + 2 NaBr`];
     }
     return null;
 }
@@ -67,7 +67,7 @@ function wurtz_coupling(chem) {
 function halide_to_alcohol(chem) {
     if (chem.type === "Alkyl Bromide") {
         const product = new Chem(chem.c, "Alcohol");
-        return [product, `${chem.formula} + NaOH(aq) → ${product.formula} + NaBr`];
+        return [product, `${chem.formula} + NaOH(aq) <span>⟶⟶</span> ${product.formula} + NaBr`];
     }
     return null;
 }
@@ -75,7 +75,7 @@ function halide_to_alcohol(chem) {
 function dehydrohalogenation(chem) {
     if (chem.type === "Alkyl Bromide" && chem.c>=2) {
         const product = new Chem(chem.c, "Alkene");
-        return [product, `${chem.formula} + NaOH(alc) → ${product.formula} + H2O + NaBr`];
+        return [product, `${chem.formula} + NaOH(alc) <span>⟶⟶</span> ${product.formula} + H2O + NaBr`];
     }
     return null;
 }
@@ -84,7 +84,7 @@ function dehydrohalogenation(chem) {
 function neutralization(chem) {
     if (chem.type === "Carboxylic Acid") {
         const product = new Chem(chem.c, "Carboxylate Salt");
-        return [product, `${chem.formula} + NaOH → ${product.formula} + H2O`];
+        return [product, `${chem.formula} + NaOH <span>⟶⟶</span> ${product.formula} + H2O`];
     }
     return null;
 }
@@ -92,7 +92,7 @@ function neutralization(chem) {
 function reduceCarboxylic(chem) {
     if (chem.type === "Carboxylic Acid") {
         const product = new Chem(chem.c, "Aldehyde");
-        return [product, `${chem.formula} + 2[H] →(LiAlH4)→ ${product.formula} + H2O`];
+        return [product, `${chem.formula} + 2[H] <span>⟶LiAlH4⟶</span> ${product.formula} + H2O`];
     }
     return null;
 }
@@ -101,7 +101,7 @@ function reduceCarboxylic(chem) {
 function soda_lime_decarboxylation(chem) {
     if (chem.type === "Carboxylate Salt" && chem.c>1) {
         const product = new Chem(chem.c-1, "Alkane");
-        return [product, `${chem.formula} + NaOH(CaO) →(heat)→ ${product.formula} + Na2CO3(CaO)`];
+        return [product, `${chem.formula} + NaOH(CaO) <span>⟶Heat⟶</span> ${product.formula} + Na2CO3(CaO)`];
     }
     return null;
 }
@@ -110,7 +110,7 @@ function soda_lime_decarboxylation(chem) {
 function halogenationAlkane(chem) {
     if (chem.type==="Alkane") {
         const product = new Chem(chem.c, "Alkyl Bromide");
-        return [product, `${chem.formula} + Br2 →(UV)→ ${product.formula} + HBr`];
+        return [product, `${chem.formula} + Br2 <span>⟶UV⟶</span> ${product.formula} + HBr`];
     }
     return null;
 }
@@ -118,7 +118,7 @@ function halogenationAlkane(chem) {
 function AlkanetoCarboxylic(chem) {
     if (chem.type==="Alkane" && chem.c<=3) {
         const product = new Chem(chem.c, "Carboxylic Acid");
-        return [product, `${chem.formula} + 3[O] →(High Temp, Low Pressure)→ ${product.formula} + H2O`];
+        return [product, `${chem.formula} + 3[O] <span>⟶High Temp, Low Pressure⟶</span> ${product.formula} + H2O`];
     }
     return null;
 }
@@ -127,7 +127,7 @@ function AlkanetoCarboxylic(chem) {
 function hydrogenationAlkene(chem) {
     if (chem.type==="Alkene") {
         const product = new Chem(chem.c, "Alkane");
-        return [product, `${chem.formula} + H2 →(Ni, 180-200°C)→ ${product.formula}`];
+        return [product, `${chem.formula} + H2 <span>⟶Ni, 180-200°C⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -135,7 +135,7 @@ function hydrogenationAlkene(chem) {
 function hydrationAlkene(chem) {
     if (chem.type==="Alkene") {
         const product = new Chem(chem.c, "Alcohol");
-        return [product, `${chem.formula} + H2O →(300°C, 60atm, H3PO4)→ ${product.formula}`];
+        return [product, `${chem.formula} + H2O <span>⟶300°C, 60atm, H3PO4⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -143,7 +143,7 @@ function hydrationAlkene(chem) {
 function halogenationAlkene(chem) {
     if (chem.type==="Alkene") {
         const product = new Chem(chem.c, "Alkyl Bromide");
-        return [product, `${chem.formula} + HBr →(H2O2)→ ${product.formula}`];
+        return [product, `${chem.formula} + HBr <span>⟶H2O2⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -151,7 +151,7 @@ function halogenationAlkene(chem) {
 function bromineAddition(chem) {
     if (chem.type==="Alkene") {
         const product = new Chem(chem.c, "Dibromo Alkane");
-        return [product, `${chem.formula} + Br2 → ${product.formula}`];
+        return [product, `${chem.formula} + Br2 <span>⟶⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -160,7 +160,7 @@ function bromineAddition(chem) {
 function dibromotoAlkyne(chem) {
     if (chem.type==="Dibromo Alkane") {
         const product = new Chem(chem.c, "Alkyne");
-        return [product, `${chem.formula} →NaNH2→ ${product.formula} + 2HBr`];
+        return [product, `${chem.formula} <span>⟶NaNH2⟶</span> ${product.formula} + 2HBr`];
     }
     return null;
 }
@@ -169,7 +169,7 @@ function dibromotoAlkyne(chem) {
 function hydrogenationAlkyne(chem) {
     if (chem.type==="Alkyne") {
         const product = new Chem(chem.c, "Alkene");
-        return [product, `${chem.formula} + H2 →(Ni, 180-200°C)→ ${product.formula}`];
+        return [product, `${chem.formula} + H2 <span>⟶Ni, 180-200°C⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -177,7 +177,7 @@ function hydrogenationAlkyne(chem) {
 function hydrationAlkyne(chem) {
     if (chem.type==="Alkyne" && chem.c<=3) {
         const product = new Chem(chem.c, "Aldehyde");
-        return [product, `${chem.formula} + H2O →(80°C, 20% H2SO4, 2% HgSO4)→ ${product.formula}`];
+        return [product, `${chem.formula} + H2O <span>⟶80°C, 20% H2SO4, 2% HgSO4⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -186,7 +186,7 @@ function hydrationAlkyne(chem) {
 function dehydration(chem) {
     if (chem.type==="Alcohol" && chem.c>=2) {
         const product = new Chem(chem.c, "Alkene");
-        return [product, `${chem.formula} →(H2SO4)→ ${product.formula} + H2O`];
+        return [product, `${chem.formula} <span>⟶H2SO4⟶</span> ${product.formula} + H2O`];
     }
     return null;
 }
@@ -194,7 +194,7 @@ function dehydration(chem) {
 function oxidationAlcohol(chem) {
     if (chem.type==="Alcohol") {
         const product = new Chem(chem.c, "Aldehyde");
-        return [product, `${chem.formula} + [O] →(K2Cr2O7, H2SO4)→ ${product.formula} + H2O`];
+        return [product, `${chem.formula} + [O] <span>⟶K2Cr2O7, H2SO4⟶</span> ${product.formula} + H2O`];
     }
     return null;
 }
@@ -203,7 +203,7 @@ function oxidationAlcohol(chem) {
 function oxidationAldehyde(chem) {
     if (chem.type==="Aldehyde") {
         const product = new Chem(chem.c, "Carboxylic Acid");
-        return [product, `${chem.formula} + [O] →(K2Cr2O7, H2SO4)→ ${product.formula}`];
+        return [product, `${chem.formula} + [O] <span>⟶K2Cr2O7, H2SO4⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -211,7 +211,7 @@ function oxidationAldehyde(chem) {
 function reduceAldehyde(chem) {
     if (chem.type==="Aldehyde") {
         const product = new Chem(chem.c, "Alcohol");
-        return [product, `${chem.formula} + 2[H] →(LiAlH4)→ ${product.formula}`];
+        return [product, `${chem.formula} + 2[H] <span>⟶LiAlH4⟶</span> ${product.formula}`];
     }
     return null;
 }
@@ -307,8 +307,9 @@ function runReaction() {
     if(!path) {
         resultBox.value = "No path found!";
     } else {
-        let output = "Path found:\n" + path.map(c=>c.toString()).join(" → ") + "\n\nReaction steps:\n";
-        output += steps.map(s=>"- "+s).join("\n");
-        resultBox.value = output;
+        let output = "<ul>";
+        output += steps.map(s=>"<li>"+s+"</li>").join("\n");
+        output += "</ul>"
+        resultBox.innerHTML = output;
     }
 }
