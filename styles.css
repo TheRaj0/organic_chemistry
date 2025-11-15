@@ -31,7 +31,7 @@ html, body {
    Labels and Inputs
 ---------------------------------*/
 label {
-    font-size: 32px;
+    font-size: 26px;
     display: block;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -40,7 +40,7 @@ label {
 }
 
 input, select, textarea {
-    font-size: 32px;
+    font-size: 28px;
     padding: 10px 12px;
     width: 100%;
     margin-bottom: 12px;
@@ -55,9 +55,9 @@ input, select, textarea {
    Textarea (Result Box)
 ---------------------------------*/
 textarea {
-    font-size: 30px;
+    font-size: 28px;
     resize: vertical;
-    height: 200px;
+    min-height: 50%;
     overflow-y: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -69,7 +69,7 @@ textarea {
    Buttons
 ---------------------------------*/
 button {
-    font-size: 16px;
+    font-size: 24px;
     padding: 12px 15px;
     border-radius: 5px;
     border: none;
